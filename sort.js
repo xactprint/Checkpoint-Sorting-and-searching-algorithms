@@ -1,23 +1,17 @@
 function insertionSort(arr) {
-    let n = arr.length;
+    // Counter 1: outer loop
+    for (let i = 1; i < arr.length; i++) {
 
-    // Start from the second element (index 1)
-    for (let i = 1; i < n; i++) {
-        
-        // Element to be inserted
-        let key = arr[i];
+        let key = arr[i];     // element to insert
+        let j = i - 1;        // Counter 2: inner loop
 
-        // Previous index
-        let j = i - 1;
-
-        // Move elements of arr[0..i-1] that are greater than key
-        // to one position ahead of their current position
+        // Move elements greater than key one position ahead
         while (j >= 0 && arr[j] > key) {
             arr[j + 1] = arr[j];
-            j = j - 1;
+            j--;
         }
 
-        // Insert key at correct position
+        // Insert the key in the correct position
         arr[j + 1] = key;
     }
 
@@ -25,5 +19,5 @@ function insertionSort(arr) {
 }
 
 // Example usage
-let array = [8, 2, 9, 1, 5, 6, 0];
-console.log("Sorted array:", insertionSort(array));
+let numbers = [5, 2, 9, 1, 6];
+console.log(insertionSort(numbers));
